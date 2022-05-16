@@ -35,8 +35,8 @@ def get_data(link):
             else:
                 print('Error reading the page')
                 retry_count = 1
-                while retry_count < 10:
-                    random_sleep(retry_count**2*152, retry_count**2*364)
+                while retry_count < 4:
+                    random_sleep(retry_count**2*15, retry_count**2*36)
                     req = requests.get(link, headers=headers)
                     if req.status_code == 200:
                         content = req.content
@@ -240,7 +240,7 @@ def extract_form_4_list(file, start_date, end_date):
 
 
 def random_sleep(min, max):
-    """Sleeps for a random amount of time between min and max"""
+    """Sleeps for a random time between min and max seconds"""
     time.sleep(random.randint(min, max) / 100)
 
 
@@ -248,8 +248,8 @@ def random_sleep(min, max):
 base_path = r'C:\Users\atala\SEC'
 save_directory = base_path + '\\tables\\'
 #  start_date and end_date are the start and end dates of the form 4 transactions. (start_date <= date <= end_date)
-start_date = '2022-02-28'
-end_date = '2022-03-13'
+start_date = '2012-05-01'
+end_date = '2022-05-14'
 
 start_date = datetime.strptime(start_date, '%Y-%m-%d')
 end_date = datetime.strptime(end_date, '%Y-%m-%d')
