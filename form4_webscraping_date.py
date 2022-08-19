@@ -208,7 +208,8 @@ def extract_form_4_list(file, start_date, end_date):
 
 
     if '-submissions-' in file:
-        # For companies with additional submission files. Additional files have a different json structure.
+       """  Some companies have a lot of submissions and in this case have multiple submission files.
+            Additional files have slightly different json structure and name. """
         with open(file, "r") as read_file:
             print("Converting JSON encoded data into Python dictionary")
             json_content = json.load(read_file)
